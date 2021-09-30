@@ -5,6 +5,8 @@ from wtforms import StringField, IntegerField, BooleanField,SelectField
 
 class Library (FlaskForm):
     title = StringField (label='Book title')
-    amount = IntegerField ('Amount')
+    id = IntegerField ('id')
     availble = BooleanField ('Availble')
-    condition = SelectField ( 'good' , choices=[('good'),('bad'),('JakCieMoge')])
+    condition = SelectField ( 'good' , choices=[('good'),('bad condition'),('JakCieMoge')])
+
+Mylibrary =[{}]
