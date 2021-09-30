@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>BookCase Library</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+
+        <form method="POST" action="{{ url_for('index') }}"><!--    akcja dla funkcji index()  -->
+            {{ form.csrf_token }}
+            {{ form.title.label    }} : {{ form.title }}    <br/>
+            {{ form.amount.label   }} : {{ form.amount }}   <br/>
+            {{ form.availble.label }} : {{ form.availble }} <br/>
+            {{ form.condition.label }}: {{ form.condition }}<br/>
+            <input type="submit" value="Go">
+        </form>
+
+       <!-- <ul>
+            <li>{form.title.label} : {form.title.data}</li>
+            <li>{form.amount.label} : {form.amount.data}</li>
+            <li>Element listy</li>
+        </ul> -->
+
+    </body>
+</html>
