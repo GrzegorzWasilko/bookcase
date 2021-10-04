@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="utf-8">
+        <title>BookCase Library remove</title>
+        <link rel="stylesheet" href="style.css"><!-- TODO - CSS -->-->
+</head>
+<body>
+        <h2>Chose position  for remove</h2>
+
+    <form action="{{ url_for('remove') }}" method="POST" id="">
+        <select value ="books" name="books" >    
+            {% for x in books %}
+                <li>  <option value="{{ x }}">Tytuł:  {{ x.title }}   Na półce: {{ x.availble}}   Stan : {{x.condition }} ID:{{x.id}}</option></li>
+                <li>  <option>                                                                                                       </option></li>
+            {% endfor %}
+        </select>  
+    </form>
+</body>

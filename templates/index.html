@@ -13,27 +13,24 @@
         <form method="POST" action="{{ url_for('index') }}"><!--    akcja dla funkcji index()  -->
             {{ form.csrf_token }}
             {{ form.title.label    }} : {{ form.title }}    <br/>
-            {{ form.id.label       }}     : {{ form.id }}   <br/>
+            {{ form.id.label       }} : {{ form.id }}       <br/>
             {{ form.availble.label }} : {{ form.availble }} <br/>
             {{ form.condition.label }}: {{ form.condition }}<br/>
-            <input type="submit" value="Go">
+            <input type="submit" value= "Add">
         </form>
         <br/>
-        <div>
+
         <form action="{{ url_for('index') }}" method="POST" id="">
-            <select name="books" ><!--jakie to ma znaczenie--> 
+            <!--  <select value =" zapisane" name="books" >    --> 
                 {% for x in books %}
-                    <li>  <option value="{{ x }}">{{ x.title }}</option></li>
+                    <li>  <option value="{{ x }}">Tytuł:  {{ x.title }}   Na półce: {{ x.availble}}   Stan : {{x.condition }} ID:{{x.id}}</option></li>
                 {% endfor %}
-            </select>
-        </form>
+            <!--</select>  -->
+            </form>
         </div>
-
-       <!-- <ul>
-            <li>{form.title.label} : {form.title.data}</li>
-            <li>{form.amount.label} : {form.amount.data}</li>
-            <li>Element listy</li>
-        </ul> -->
-
+        <br/>
+        <a href="{{ url_for('remove') }}"> dokonaj zmian </a>
+        <br/>      
+ 
     </body>
 </html>

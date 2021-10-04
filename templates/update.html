@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Szczegóły todo</title>
+</head>
+<body>
+    <h2> CHange: </h2>
+    <form method="POST" action="index/{{ id }}/">
+        {{ form.hidden_tag() }}
+                {% for x in books %}
+                    {% if {{form.id}} == {{x.id}} %}
+                    <li>  <option value="{{ x }}">Tytuł:  {{ x.title }}   Na półce: {{ x.availble}}   Stan : {{x.condition }} ID:{{x.id}}</option></li>
+                    <li>  <option value="{{ books }}">{{x.remove}}</option></li>
+                    {% endif %}
+                {% endfor %}
+        <input type="submit" value="Save Changes ">
+    </form>  
+</body>
+</html>
