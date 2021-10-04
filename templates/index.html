@@ -9,15 +9,7 @@
         {% if error %}
         <div> {{ error }}</div>
         {% endif %}
-
-        <form action="{{ url_for('index') }}" method="POST" id="">
-            <select name="books" ><!--jakie to ma znaczenie--> 
-                {% for x in books %}
-                    <li>{{ x }}</li>
-                {% endfor %}
-            </select>
-        </form>
-
+        
         <form method="POST" action="{{ url_for('index') }}"><!--    akcja dla funkcji index()  -->
             {{ form.csrf_token }}
             {{ form.title.label    }} : {{ form.title }}    <br/>
@@ -26,6 +18,16 @@
             {{ form.condition.label }}: {{ form.condition }}<br/>
             <input type="submit" value="Go">
         </form>
+        <br/>
+        <div>
+        <form action="{{ url_for('index') }}" method="POST" id="">
+            <select name="books" ><!--jakie to ma znaczenie--> 
+                {% for x in books %}
+                    <li>  <option value="{{ x }}">{{ x.title }}</option></li>
+                {% endfor %}
+            </select>
+        </form>
+        </div>
 
        <!-- <ul>
             <li>{form.title.label} : {form.title.data}</li>
