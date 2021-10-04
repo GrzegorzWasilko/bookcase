@@ -3,16 +3,24 @@
     <head>
         <meta charset="utf-8">
         <title>BookCase Library</title>
-        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="style.css"><!-- TODO - CSS -->-->
     </head>
     <body>
         {% if error %}
         <div> {{ error }}</div>
         {% endif %}
+        <form action="{{ url_for('index') }}" method="POST" id="">
+            <select name="xxx" ><!--jakie to ma znaczenie--> 
+                {% for x in xxx %}
+                    <li>{{ x }}</li>
+                {% endfor %}
+            </select>
+    </form>
+
         <form method="POST" action="{{ url_for('index') }}"><!--    akcja dla funkcji index()  -->
             {{ form.csrf_token }}
             {{ form.title.label    }} : {{ form.title }}    <br/>
-            {{ form.amount.label   }} : {{ form.amount }}   <br/>
+            {{ form.id.label       }}     : {{ form.id }}   <br/>
             {{ form.availble.label }} : {{ form.availble }} <br/>
             {{ form.condition.label }}: {{ form.condition }}<br/>
             <input type="submit" value="Go">

@@ -1,0 +1,18 @@
+<h2>Poczynania</h2>
+
+<form action="/library" method="GET" id="">
+
+        <label for="Library">Zawartosc:</label>
+        <select name="data" ><!--jakie to ma znaczenie--> 
+            {% for x in data %}
+                <li>{{ x }}</li>
+            {% endfor %}
+        </select>
+</form>
+<!---
+<ul>
+    <li>{form.title.label} : {form.title.data}</li>
+    <li>{form.amount.label} : {form.amount.data}</li>
+    <li>Element listy</li>
+</ul>  
+-->
