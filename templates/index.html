@@ -9,13 +9,14 @@
         {% if error %}
         <div> {{ error }}</div>
         {% endif %}
+
         <form action="{{ url_for('index') }}" method="POST" id="">
-            <select name="xxx" ><!--jakie to ma znaczenie--> 
-                {% for x in xxx %}
+            <select name="books" ><!--jakie to ma znaczenie--> 
+                {% for x in books %}
                     <li>{{ x }}</li>
                 {% endfor %}
             </select>
-    </form>
+        </form>
 
         <form method="POST" action="{{ url_for('index') }}"><!--    akcja dla funkcji index()  -->
             {{ form.csrf_token }}
