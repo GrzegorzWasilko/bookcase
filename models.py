@@ -31,7 +31,7 @@ class Books:
             return True
         return False
         
-    def remove(self,id):
+    def remove(self, id):
         book = self.get(id)
         if book:
             self.books.remove(book)
@@ -39,7 +39,6 @@ class Books:
             return True
         return False
 
-    def index(self,data):
-        x = data
-        numb=x.index()
-        return numb
+
+ 
+        

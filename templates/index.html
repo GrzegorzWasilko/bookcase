@@ -7,10 +7,7 @@
         <link rel="stylesheet" href="style.css"><!-- TODO - CSS -->
     </head>
     <body>
-        {% if error %}
-        <div> {{ error }}</div>
-        {% endif %}
-        
+        <br/>
         <form method="POST" action="{{ url_for('index') }}"><!--    akcja dla funkcji index()  -->
             {{ form.csrf_token }}
             {{ form.title.label    }} : {{ form.title }}    <br/>

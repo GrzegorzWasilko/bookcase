@@ -3,21 +3,22 @@
 <head>
         <meta charset="utf-8">
         <title> Remove Form Side </title>
-        <link rel="" href="">       <!-- TODO - CSS -->
+        <link rel="" href="">       
 </head>
 <!--########################################################################-->
-
 <body>
-<!--########################################################################-->
+
         <h2>Chose position  for remove</h2><br/>
 <!--########################################################################-->
 
     
-        {% for x in books %}
-            Tytuł:  {{ x.title }}   Na półce: {{ x.availble}}   Stan : {{x.condition }} ID::{{x.id}}
-            <a href="{{ url_for ('afterremove' ,books_id = x.get() ) }}">Delete</a><br />
+        {%  for x in books %}
+            Tytuł:  {{ x.tile }}   Na półce: {{ x.availble}}   Stan : {{x.condition }} ID:{{x.id}}
+              {{j}}   
+            <a href="{{ url_for ('afterremove',id = j) }}">Delete</a>  <br/>
 
         {% endfor %}
   
 <!--########################################################################-->
+
 </body>
