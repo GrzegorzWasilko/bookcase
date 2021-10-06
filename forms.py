@@ -1,15 +1,13 @@
 from flask_wtf import FlaskForm
 from wtforms import StringField, IntegerField, BooleanField,SelectField
+from wtforms.fields.simple import SubmitField
 from wtforms.validators import DataRequired,required
 #from wtforms.validators import 
 
 
 class Library (FlaskForm):
-    title = StringField (label='Book title')
+    title = StringField (label='Book title',validators=[DataRequired()])
     id = IntegerField (label='id',validators=[DataRequired()])
-    availble = BooleanField ('Availble')
+    availble = BooleanField ('Availble',validators=[DataRequired()])
     condition = SelectField ( 'good' , choices=[('good'),('bad condition'),('JakCieMoge')])
-
-#Mylibrary =[{}]
-class id (FlaskForm):
-    ID=IntegerField (label='ID',validators=[DataRequired()])
+    submit= SubmitField ('Add new position')

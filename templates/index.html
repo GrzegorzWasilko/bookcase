@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
+
     <head>
         <meta charset="utf-8">
         <title>BookCase Library</title>
-        <link rel="stylesheet" href="style.css"><!-- TODO - CSS -->-->
+        <link rel="stylesheet" href="style.css"><!-- TODO - CSS -->
     </head>
     <body>
         {% if error %}
@@ -16,21 +17,23 @@
             {{ form.id.label       }} : {{ form.id }}       <br/>
             {{ form.availble.label }} : {{ form.availble }} <br/>
             {{ form.condition.label }}: {{ form.condition }}<br/>
-            <input type="submit" value= "Add">
+            <input type="submit" value= "Add old in html">
         </form>
         <br/>
-
+    <!--########################################################################-->
         <form action="{{ url_for('index') }}" method="POST" id="">
             <!--  <select value =" zapisane" name="books" >    --> 
                 {% for x in books %}
-                    <li>  <option value="{{ x }}">Tytuł:  {{ x.title }}   Na półce: {{ x.availble}}   Stan : {{x.condition }} ID:{{x.id}}</option></li>
+                    <li>  <option value="{{ x }}">Tytuł:  {{ x.title }}   Na półce: {{ x.availble}}   Stan : {{x.condition }} ID::{{x.id}}</option></li>
                 {% endfor %}
             <!--</select>  -->
-            </form>
-        </div>
+        </form>
+    <!--########################################################################-->
+
+    <!--########################################################################-->
         <br/>
-        <a href="{{ url_for('remove') }}"> dokonaj zmian </a>
+        <a href="/remove"> dokonaj zmian </a>
         <br/>      
- 
+    <!--########################################################################-->
     </body>
 </html>
