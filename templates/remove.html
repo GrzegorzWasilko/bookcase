@@ -13,11 +13,11 @@
 <!--########################################################################-->
 
     
-            {% for x in books %}
+        {% for x in books %}
             Tytuł:  {{ x.title }}   Na półce: {{ x.availble}}   Stan : {{x.condition }} ID::{{x.id}}
-            <a href="{{ url_for ('afterremove' ,books_id = x.id ) }}">Delete</a><br />
+            <a href="{{ url_for ('afterremove' ,books_id = x.get() ) }}">Delete</a><br />
 
-            {% endfor %}
+        {% endfor %}
   
 <!--########################################################################-->
 </body>

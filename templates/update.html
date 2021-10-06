@@ -7,13 +7,14 @@
 <body>
     <h2>Strona formularza  def update </h2>
 
-    <form method="POST" action="{{ url_for ('update' , books_id ) }}"><!--    akcja dla funkcji index()  -->
+    <form method="POST" action="{{ url_for ('update',books) }}"></form>
+        
             {{ form.csrf_token }}
             {{ form.title.label    }} : {{ form.title }}    <br/>
             {{ form.id.label       }} : {{ form.id }}       <br/>
             {{ form.availble.label }} : {{ form.availble }} <br/>
             {{ form.condition.label }}: {{ form.condition }}<br/>
-            <input type="submit" value= "Add">
+        
         <input type="submit" value="Save Changes ">
     </form>  
 
@@ -24,14 +25,3 @@
 
 
 
-<!--  {#<form method="POST" action="{{ url_for('index') }}" id="">
-    {{ form.id.label}} : {{ form.id }} 
-    
-        {% for x in books %}
-            {% if {{form.id}} == {{x.id}} %}
-            <li>  <option value="{{ x }}">Tytuł:  {{ x.title }}   Na półce: {{ x.availble}}   Stan : {{x.condition }} ID:{{x.id}}</option></li>
-            <li>  <option value="{{ books }}">{{x.remove}}</option></li>
-            {% endif %}
-        {% endfor %}#}
-<input type="submit" value="Go to position ">
-</form>  -->

@@ -11,7 +11,7 @@ class Books:
     def all(self):#wyswietla liste
         return self.books
 
-    def get(self, id):# podaje element o podanym elemencie  id
+    def get(self, id):# podaje element o podanym elemencie  id w liście
         return self.books[id]
 
     def create(self, data):
@@ -23,13 +23,23 @@ class Books:
             json.dump(self.books, f)
 
     def update(self, id, data):
-        data.pop('csrf_token')
-        self.books[id] = data
-        self.save_all()
+        book = self.get(id)
+        if book:
+            index = self.books.index(book)
+            self.books[index] = data
+            self.save_all()
+            return True
+        return False
         
     def remove(self,id):
-        print(self.books)
-        data = self.books[id]    # albo data = self.get[id]
-        
-        self.books.remove(data)
-        self.save_all()
+        book = self.get(id)
+        if book:
+            self.books.remove(book)
+            self.save_all()
+            return True
+        return False
+
+    def index(self,data):
+        x = data
+        numb=x.index()
+        return numb

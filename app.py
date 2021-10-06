@@ -21,6 +21,10 @@ def index():
 
     return render_template('index.html', form=form, books=books.all(), error=error)# get powoduje wyswietlenie form i listy z books
 #________________________________________________________________________________________________________________
+#@app.route ("/update")
+#def update():                   
+#    return render_template('update.html')
+
 @app.route ("/update/<int:books_id>", methods = ['GET','POST']) #czyli n 1 element jest pod http://127.0.0.1:5000/index/2
 def update(books_id):
     position = books.get(books_id - 1) # do position wpisuje dane z listy o indeksie w id o 1 mniejszym
@@ -28,9 +32,9 @@ def update(books_id):
 
     if request.method == "POST":
         if form.validate_on_submit():
-           books.update(books_id - 1, form.data)
+           books.update(books_id - 1, form.data)   # books  = books.get(books_id)
            books.save_all()
-        return redirect(url_for('update'))
+           return redirect(url_for('update'))
     return render_template("update.html", form=form, books_id=books_id,books=books.all())
 #________________________________________________________________________________________________________
 
@@ -40,7 +44,9 @@ def remove():
 
 @app.route ("/remove/<int:books_id>")
 def afterremove(books_id):  
-    books.remove(books_id - 1)
+    print(books_id)
+    position = books.get(books_id)
+    books.remove(position)
     books.save_all()        
     return redirect(url_for('remove'))#nazwa metody  tu l 38
 
