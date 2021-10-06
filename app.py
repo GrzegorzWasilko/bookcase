@@ -22,11 +22,10 @@ def index():
 #________________________________________________________________________________________________________________
 @app.route("/update/<int:id>/", methods=["GET", "POST"])
 def update(id):
-    book = books.get(id - 1)
-    form = Library(data=book)
-
+    thisone = books.get(id)
+    form = Library(data=thisone)
     if request.method == "POST":
         if form.validate_on_submit():
-            books.update(id - 1, form.data)
+            books.update( id - 1, form.data )
         return redirect(url_for("index"))
     return render_template("update.html", form=form,id=id)

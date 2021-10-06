@@ -24,7 +24,7 @@ class BooksForm :
 
     def update(self, id, data):
         data.pop('csrf_token')
-        self.todos[id] = data
+        self.books[id] = data
         self.save_all()
         
     def remove(self, id):
