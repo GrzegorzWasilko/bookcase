@@ -11,8 +11,11 @@ class BooksForm :
     def all(self):#wyswietla liste
         return self.books
 
-    def get(self, id):# podaje element o podanym elemencie  id w liście
-        return self.books[id]
+    def get(self, id):
+        book = [book for book in self.all() if book['id'] == id]
+        if book:
+            return book[0]
+        return []
 
     def create(self, data):
         data.pop('csrf_token')
