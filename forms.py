@@ -7,7 +7,6 @@ from wtforms.validators import DataRequired,required
 
 class Library (FlaskForm):
     title = StringField (label='Book title',validators=[DataRequired()])
-    id = IntegerField (label='id',validators=[DataRequired()])
-    availble = BooleanField ('Availble',validators=[DataRequired()])
+    availble = BooleanField ('Availble')
     condition = SelectField ( 'good' , choices=[('good'),('bad condition'),('JakCieMoge')])
     submit= SubmitField ('Add new position')

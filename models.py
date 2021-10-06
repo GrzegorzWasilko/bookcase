@@ -1,6 +1,6 @@
 import json
 
-class Books:
+class BooksForm :
     def __init__(self):# konstruktor objektu klasy
         try:
             with open("books.json", "r") as f:
@@ -23,13 +23,9 @@ class Books:
             json.dump(self.books, f)
 
     def update(self, id, data):
-        book = self.get(id)
-        if book:
-            index = self.books.index(book)
-            self.books[index] = data
-            self.save_all()
-            return True
-        return False
+        data.pop('csrf_token')
+        self.todos[id] = data
+        self.save_all()
         
     def remove(self, id):
         book = self.get(id)
@@ -40,5 +36,13 @@ class Books:
         return False
 
 
+"""def update(self, id, data):
+        book = self.get(id)
+        if book:
+            index = self.books.index(book)
+            self.books[index] = data
+            self.save_all()
+            return True
+        return False"""
  
         

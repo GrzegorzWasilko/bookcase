@@ -2,12 +2,12 @@ from flask import Flask, render_template, url_for,request,redirect
 from flask_wtf import FlaskForm
 import json
 from forms import Library
-from models import Books
+from models import BooksForm
 
 app = Flask (__name__)
 app.config['SECRET_KEY'] = 'blabla'
 
-books=Books()                              #instancja  Books z pliku json
+books=BooksForm()                              #instancja  Books z pliku json
 
 @app.route ('/', methods = ['GET','POST'])
 def index():
@@ -20,30 +20,13 @@ def index():
 
     return render_template('index.html', form=form, books=books.all())# get powoduje wyswietlenie form i listy z books
 #________________________________________________________________________________________________________________
-@app.route ("/update")
-def ChoseUpdate():  
-    form = Library()            
-    return render_template('update.html',form=form, books=books.all())
-
-
-
-
-###_______________________________________________________________________________________________________
-
-@app.route ("/remove")
-def remove():   
-    j=0                
-    return render_template('remove.html',j=j,  books=books.all())
-###
-@app.route ("/remove/<int:id>")
-def afterremove(id):  
+@app.route("/update/<int:id>/", methods=["GET", "POST"])
+def update(id):
+    book = books.get(id - 1)
+    form = Library()
 
     if request.method == "POST":
-        book = books.get(id )
-        form = Library(data=book)
         if form.validate_on_submit():
-            books.remove(id - 1, form.data)
-            return redirect(url_for('remove'))#nazwa metody  
-###_____________________________________________________________________________________________________
-
- 
+            books.update(id - 1, form.data)
+        return redirect(url_for("index"))
+    return render_template("update.html", form=form, books=book, id=id)

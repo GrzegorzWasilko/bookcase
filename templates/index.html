@@ -11,19 +11,16 @@
         <form method="POST" action="{{ url_for('index') }}"><!--    akcja dla funkcji index()  -->
             {{ form.csrf_token }}
             {{ form.title.label    }} : {{ form.title }}    <br/>
-            {{ form.id.label       }} : {{ form.id }}       <br/>
             {{ form.availble.label }} : {{ form.availble }} <br/>
             {{ form.condition.label }}: {{ form.condition }}<br/>
             <input type="submit" value= "Add old in html">
         </form>
         <br/>
     <!--########################################################################-->
-        <form action="{{ url_for('index') }}" method="POST" id="">
-            <!--  <select value =" zapisane" name="books" >    --> 
+        <form action="{{ url_for('index') }}" method="POST"> 
                 {% for x in books %}
-                    <li>  <option value="{{ x }}">Tytuł:  {{ x.title }}   Na półce: {{ x.availble}}   Stan : {{x.condition }} ID::{{x.id}}</option></li>
+                    <li>  <option value="{{ x }}">Tytuł:{{ x.title }} Na półce: {{ x.availble}} Stan : {{x.condition }} </option></li>
                 {% endfor %}
-            <!--</select>  -->
         </form>
     <!--########################################################################-->
         <br/>
