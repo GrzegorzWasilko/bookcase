@@ -23,7 +23,7 @@ def index():
 @app.route("/update/<int:id>/", methods=["GET", "POST"])
 def update(id):
     book = books.get(id - 1)
-    form = Library()
+    form = BooksForm(data=book)
 
     if request.method == "POST":
         if form.validate_on_submit():
